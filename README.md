@@ -1,2 +1,2 @@
-# Compilador---An-lise-Sint-tica
-Trabalho para a disciplina de Compiladores - Análise Sintática
+# Compilador---An-lise-L-xica
+Implementação para a disciplina de Compiladores

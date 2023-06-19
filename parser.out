@@ -1,0 +1,2147 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BOOLEANO
+    DEFINE
+    DOIS_PONTOS
+    EM
+    INTERROMPA
+    LEIA
+    NUMERO_MF
+    OP_MOD
+    PONTO
+    PROSSIGA
+    RETORNE
+    TEXTO_MF
+    VARIAVEL_MF
+    ignore
+
+Grammar
+
+Rule 0     S' -> statements
+Rule 1     statements -> statements statement
+Rule 2     statements -> statement
+Rule 3     statement -> COMENT
+Rule 4     statement -> IFSULDEMINAS DELIMITADOR
+Rule 5     statement -> COMPILADORES DELIMITADOR
+Rule 6     statement -> INICIO ABRE_CH FECHA_CH
+Rule 7     statement -> FIM ABRE_CH FECHA_CH
+Rule 8     statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+Rule 9     statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+Rule 10    statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+Rule 11    statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+Rule 12    statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+Rule 13    statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+Rule 14    statement -> VAR OP_ATRIBUI VAR DELIMITADOR
+Rule 15    statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+Rule 16    statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+Rule 17    statement -> VAR OP_ATRIBUI funcao DELIMITADOR
+Rule 18    statement -> VAR DELIMITADOR
+Rule 19    statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+Rule 20    statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+Rule 21    statement -> funcao DELIMITADOR
+Rule 22    statement -> funcao ABRE_CLT statements FECHA_CLT
+Rule 23    cond_param -> VAR OP_REL VALOR_NUMINT
+Rule 24    cond_param -> VAR OP_REL VALOR_NUMDEC
+Rule 25    cond_param -> VAR OP_REL VALOR_TEXTO
+Rule 26    cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+Rule 27    cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+Rule 28    cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+Rule 29    statement -> AUX
+Rule 30    statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+Rule 31    statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+Rule 32    statement -> VERDADEIRO
+Rule 33    statement -> FALSO
+Rule 34    cond_param -> cond_param OP_REL cond_param
+Rule 35    param_vazio -> <empty>
+Rule 36    param -> VALOR_NUMINT
+Rule 37    param -> VALOR_NUMDEC
+Rule 38    param -> VALOR_TEXTO
+Rule 39    param -> VAR
+Rule 40    param -> param VIRGULA param
+Rule 41    funcao -> ABRE_P param_vazio FECHA_P
+Rule 42    funcao -> ABRE_P param FECHA_P
+
+Terminals, with rules where they appear
+
+ABRE_CH              : 6 7
+ABRE_CLT             : 8 9 19 20 20 22
+ABRE_P               : 8 9 19 20 30 31 41 42
+ASPAS                : 31 31
+AUX                  : 29
+BOOLEANO             : 
+COMENT               : 3
+COMPILADORES         : 5
+DEFINE               : 
+DELIMITADOR          : 4 5 10 11 12 14 15 16 17 18 21 30 31
+DOIS_PONTOS          : 
+EM                   : 
+ENQUANTO             : 8
+ESCREVA              : 30 31
+FALSO                : 33
+FECHA_CH             : 6 7
+FECHA_CLT            : 8 9 19 20 20 22
+FECHA_P              : 8 9 19 20 30 31 41 42
+FIM                  : 7
+IFSULDEMINAS         : 4
+INICIO               : 6
+INTERROMPA           : 
+LEIA                 : 
+NUMERO_MF            : 
+OP_ARIT              : 9 9 13 13 15 16
+OP_ATRIBUI           : 9 9 10 11 12 13 14 15 16 17
+OP_LOGICO            : 26 27 28
+OP_MOD               : 
+OP_REL               : 23 24 25 26 26 27 27 28 28 34
+PARA                 : 9
+PONTO                : 
+PROSSIGA             : 
+RETORNE              : 
+SE                   : 19 20
+SENAO                : 20
+TEXTO_MF             : 
+VALOR_NUMDEC         : 11 16 24 27 27 37
+VALOR_NUMINT         : 9 10 15 23 26 26 36
+VALOR_TEXTO          : 12 25 28 28 38
+VAR                  : 9 9 10 11 12 13 13 14 14 15 15 16 16 17 18 23 24 25 26 26 27 27 28 28 30 39
+VARIAVEL_MF          : 
+VERDADEIRO           : 32
+VIRGULA              : 9 9 40
+error                : 
+ignore               : 
+
+Nonterminals, with rules where they appear
+
+cond_param           : 8 9 19 20 34 34
+funcao               : 17 21 22
+param                : 40 40 42
+param_vazio          : 41
+statement            : 1 2
+statements           : 1 8 9 19 20 20 22 31 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statements
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 1
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 1
+
+    (0) S' -> statements .
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 2
+
+    (2) statements -> statement .
+
+    COMENT          reduce using rule 2 (statements -> statement .)
+    IFSULDEMINAS    reduce using rule 2 (statements -> statement .)
+    COMPILADORES    reduce using rule 2 (statements -> statement .)
+    INICIO          reduce using rule 2 (statements -> statement .)
+    FIM             reduce using rule 2 (statements -> statement .)
+    ENQUANTO        reduce using rule 2 (statements -> statement .)
+    PARA            reduce using rule 2 (statements -> statement .)
+    VAR             reduce using rule 2 (statements -> statement .)
+    SE              reduce using rule 2 (statements -> statement .)
+    AUX             reduce using rule 2 (statements -> statement .)
+    ESCREVA         reduce using rule 2 (statements -> statement .)
+    VERDADEIRO      reduce using rule 2 (statements -> statement .)
+    FALSO           reduce using rule 2 (statements -> statement .)
+    ABRE_P          reduce using rule 2 (statements -> statement .)
+    $end            reduce using rule 2 (statements -> statement .)
+    FECHA_CLT       reduce using rule 2 (statements -> statement .)
+    ASPAS           reduce using rule 2 (statements -> statement .)
+
+
+state 3
+
+    (3) statement -> COMENT .
+
+    COMENT          reduce using rule 3 (statement -> COMENT .)
+    IFSULDEMINAS    reduce using rule 3 (statement -> COMENT .)
+    COMPILADORES    reduce using rule 3 (statement -> COMENT .)
+    INICIO          reduce using rule 3 (statement -> COMENT .)
+    FIM             reduce using rule 3 (statement -> COMENT .)
+    ENQUANTO        reduce using rule 3 (statement -> COMENT .)
+    PARA            reduce using rule 3 (statement -> COMENT .)
+    VAR             reduce using rule 3 (statement -> COMENT .)
+    SE              reduce using rule 3 (statement -> COMENT .)
+    AUX             reduce using rule 3 (statement -> COMENT .)
+    ESCREVA         reduce using rule 3 (statement -> COMENT .)
+    VERDADEIRO      reduce using rule 3 (statement -> COMENT .)
+    FALSO           reduce using rule 3 (statement -> COMENT .)
+    ABRE_P          reduce using rule 3 (statement -> COMENT .)
+    $end            reduce using rule 3 (statement -> COMENT .)
+    FECHA_CLT       reduce using rule 3 (statement -> COMENT .)
+    ASPAS           reduce using rule 3 (statement -> COMENT .)
+
+
+state 4
+
+    (4) statement -> IFSULDEMINAS . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 19
+
+
+state 5
+
+    (5) statement -> COMPILADORES . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 20
+
+
+state 6
+
+    (6) statement -> INICIO . ABRE_CH FECHA_CH
+
+    ABRE_CH         shift and go to state 21
+
+
+state 7
+
+    (7) statement -> FIM . ABRE_CH FECHA_CH
+
+    ABRE_CH         shift and go to state 22
+
+
+state 8
+
+    (8) statement -> ENQUANTO . ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+
+    ABRE_P          shift and go to state 23
+
+
+state 9
+
+    (41) funcao -> ABRE_P . param_vazio FECHA_P
+    (42) funcao -> ABRE_P . param FECHA_P
+    (35) param_vazio -> .
+    (36) param -> . VALOR_NUMINT
+    (37) param -> . VALOR_NUMDEC
+    (38) param -> . VALOR_TEXTO
+    (39) param -> . VAR
+    (40) param -> . param VIRGULA param
+
+    FECHA_P         reduce using rule 35 (param_vazio -> .)
+    VALOR_NUMINT    shift and go to state 26
+    VALOR_NUMDEC    shift and go to state 27
+    VALOR_TEXTO     shift and go to state 28
+    VAR             shift and go to state 29
+
+    param_vazio                    shift and go to state 24
+    param                          shift and go to state 25
+
+state 10
+
+    (9) statement -> PARA . ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    ABRE_P          shift and go to state 30
+
+
+state 11
+
+    (10) statement -> VAR . OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> VAR . OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> VAR . OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> VAR . OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> VAR . OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> VAR . OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> VAR . OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> VAR . OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> VAR . DELIMITADOR
+
+    OP_ATRIBUI      shift and go to state 31
+    DELIMITADOR     shift and go to state 32
+
+
+state 12
+
+    (21) statement -> funcao . DELIMITADOR
+    (22) statement -> funcao . ABRE_CLT statements FECHA_CLT
+
+    DELIMITADOR     shift and go to state 33
+    ABRE_CLT        shift and go to state 34
+
+
+state 13
+
+    (19) statement -> SE . ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> SE . ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+
+    ABRE_P          shift and go to state 35
+
+
+state 14
+
+    (29) statement -> AUX .
+
+    COMENT          reduce using rule 29 (statement -> AUX .)
+    IFSULDEMINAS    reduce using rule 29 (statement -> AUX .)
+    COMPILADORES    reduce using rule 29 (statement -> AUX .)
+    INICIO          reduce using rule 29 (statement -> AUX .)
+    FIM             reduce using rule 29 (statement -> AUX .)
+    ENQUANTO        reduce using rule 29 (statement -> AUX .)
+    PARA            reduce using rule 29 (statement -> AUX .)
+    VAR             reduce using rule 29 (statement -> AUX .)
+    SE              reduce using rule 29 (statement -> AUX .)
+    AUX             reduce using rule 29 (statement -> AUX .)
+    ESCREVA         reduce using rule 29 (statement -> AUX .)
+    VERDADEIRO      reduce using rule 29 (statement -> AUX .)
+    FALSO           reduce using rule 29 (statement -> AUX .)
+    ABRE_P          reduce using rule 29 (statement -> AUX .)
+    $end            reduce using rule 29 (statement -> AUX .)
+    FECHA_CLT       reduce using rule 29 (statement -> AUX .)
+    ASPAS           reduce using rule 29 (statement -> AUX .)
+
+
+state 15
+
+    (30) statement -> ESCREVA . ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> ESCREVA . ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+
+    ABRE_P          shift and go to state 36
+
+
+state 16
+
+    (32) statement -> VERDADEIRO .
+
+    COMENT          reduce using rule 32 (statement -> VERDADEIRO .)
+    IFSULDEMINAS    reduce using rule 32 (statement -> VERDADEIRO .)
+    COMPILADORES    reduce using rule 32 (statement -> VERDADEIRO .)
+    INICIO          reduce using rule 32 (statement -> VERDADEIRO .)
+    FIM             reduce using rule 32 (statement -> VERDADEIRO .)
+    ENQUANTO        reduce using rule 32 (statement -> VERDADEIRO .)
+    PARA            reduce using rule 32 (statement -> VERDADEIRO .)
+    VAR             reduce using rule 32 (statement -> VERDADEIRO .)
+    SE              reduce using rule 32 (statement -> VERDADEIRO .)
+    AUX             reduce using rule 32 (statement -> VERDADEIRO .)
+    ESCREVA         reduce using rule 32 (statement -> VERDADEIRO .)
+    VERDADEIRO      reduce using rule 32 (statement -> VERDADEIRO .)
+    FALSO           reduce using rule 32 (statement -> VERDADEIRO .)
+    ABRE_P          reduce using rule 32 (statement -> VERDADEIRO .)
+    $end            reduce using rule 32 (statement -> VERDADEIRO .)
+    FECHA_CLT       reduce using rule 32 (statement -> VERDADEIRO .)
+    ASPAS           reduce using rule 32 (statement -> VERDADEIRO .)
+
+
+state 17
+
+    (33) statement -> FALSO .
+
+    COMENT          reduce using rule 33 (statement -> FALSO .)
+    IFSULDEMINAS    reduce using rule 33 (statement -> FALSO .)
+    COMPILADORES    reduce using rule 33 (statement -> FALSO .)
+    INICIO          reduce using rule 33 (statement -> FALSO .)
+    FIM             reduce using rule 33 (statement -> FALSO .)
+    ENQUANTO        reduce using rule 33 (statement -> FALSO .)
+    PARA            reduce using rule 33 (statement -> FALSO .)
+    VAR             reduce using rule 33 (statement -> FALSO .)
+    SE              reduce using rule 33 (statement -> FALSO .)
+    AUX             reduce using rule 33 (statement -> FALSO .)
+    ESCREVA         reduce using rule 33 (statement -> FALSO .)
+    VERDADEIRO      reduce using rule 33 (statement -> FALSO .)
+    FALSO           reduce using rule 33 (statement -> FALSO .)
+    ABRE_P          reduce using rule 33 (statement -> FALSO .)
+    $end            reduce using rule 33 (statement -> FALSO .)
+    FECHA_CLT       reduce using rule 33 (statement -> FALSO .)
+    ASPAS           reduce using rule 33 (statement -> FALSO .)
+
+
+state 18
+
+    (1) statements -> statements statement .
+
+    COMENT          reduce using rule 1 (statements -> statements statement .)
+    IFSULDEMINAS    reduce using rule 1 (statements -> statements statement .)
+    COMPILADORES    reduce using rule 1 (statements -> statements statement .)
+    INICIO          reduce using rule 1 (statements -> statements statement .)
+    FIM             reduce using rule 1 (statements -> statements statement .)
+    ENQUANTO        reduce using rule 1 (statements -> statements statement .)
+    PARA            reduce using rule 1 (statements -> statements statement .)
+    VAR             reduce using rule 1 (statements -> statements statement .)
+    SE              reduce using rule 1 (statements -> statements statement .)
+    AUX             reduce using rule 1 (statements -> statements statement .)
+    ESCREVA         reduce using rule 1 (statements -> statements statement .)
+    VERDADEIRO      reduce using rule 1 (statements -> statements statement .)
+    FALSO           reduce using rule 1 (statements -> statements statement .)
+    ABRE_P          reduce using rule 1 (statements -> statements statement .)
+    $end            reduce using rule 1 (statements -> statements statement .)
+    FECHA_CLT       reduce using rule 1 (statements -> statements statement .)
+    ASPAS           reduce using rule 1 (statements -> statements statement .)
+
+
+state 19
+
+    (4) statement -> IFSULDEMINAS DELIMITADOR .
+
+    COMENT          reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    COMPILADORES    reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    INICIO          reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    FIM             reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    ENQUANTO        reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    PARA            reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    VAR             reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    SE              reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    AUX             reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    ESCREVA         reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    VERDADEIRO      reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    FALSO           reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    ABRE_P          reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    $end            reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    FECHA_CLT       reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+    ASPAS           reduce using rule 4 (statement -> IFSULDEMINAS DELIMITADOR .)
+
+
+state 20
+
+    (5) statement -> COMPILADORES DELIMITADOR .
+
+    COMENT          reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    COMPILADORES    reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    INICIO          reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    FIM             reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    ENQUANTO        reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    PARA            reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    VAR             reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    SE              reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    AUX             reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    ESCREVA         reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    VERDADEIRO      reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    FALSO           reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    ABRE_P          reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    $end            reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    FECHA_CLT       reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+    ASPAS           reduce using rule 5 (statement -> COMPILADORES DELIMITADOR .)
+
+
+state 21
+
+    (6) statement -> INICIO ABRE_CH . FECHA_CH
+
+    FECHA_CH        shift and go to state 37
+
+
+state 22
+
+    (7) statement -> FIM ABRE_CH . FECHA_CH
+
+    FECHA_CH        shift and go to state 38
+
+
+state 23
+
+    (8) statement -> ENQUANTO ABRE_P . cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (23) cond_param -> . VAR OP_REL VALOR_NUMINT
+    (24) cond_param -> . VAR OP_REL VALOR_NUMDEC
+    (25) cond_param -> . VAR OP_REL VALOR_TEXTO
+    (26) cond_param -> . VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> . VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> . VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+    (34) cond_param -> . cond_param OP_REL cond_param
+
+    VAR             shift and go to state 40
+
+    cond_param                     shift and go to state 39
+
+state 24
+
+    (41) funcao -> ABRE_P param_vazio . FECHA_P
+
+    FECHA_P         shift and go to state 41
+
+
+state 25
+
+    (42) funcao -> ABRE_P param . FECHA_P
+    (40) param -> param . VIRGULA param
+
+    FECHA_P         shift and go to state 42
+    VIRGULA         shift and go to state 43
+
+
+state 26
+
+    (36) param -> VALOR_NUMINT .
+
+    FECHA_P         reduce using rule 36 (param -> VALOR_NUMINT .)
+    VIRGULA         reduce using rule 36 (param -> VALOR_NUMINT .)
+
+
+state 27
+
+    (37) param -> VALOR_NUMDEC .
+
+    FECHA_P         reduce using rule 37 (param -> VALOR_NUMDEC .)
+    VIRGULA         reduce using rule 37 (param -> VALOR_NUMDEC .)
+
+
+state 28
+
+    (38) param -> VALOR_TEXTO .
+
+    FECHA_P         reduce using rule 38 (param -> VALOR_TEXTO .)
+    VIRGULA         reduce using rule 38 (param -> VALOR_TEXTO .)
+
+
+state 29
+
+    (39) param -> VAR .
+
+    FECHA_P         reduce using rule 39 (param -> VAR .)
+    VIRGULA         reduce using rule 39 (param -> VAR .)
+
+
+state 30
+
+    (9) statement -> PARA ABRE_P . VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    VAR             shift and go to state 44
+
+
+state 31
+
+    (10) statement -> VAR OP_ATRIBUI . VALOR_NUMINT DELIMITADOR
+    (11) statement -> VAR OP_ATRIBUI . VALOR_NUMDEC DELIMITADOR
+    (12) statement -> VAR OP_ATRIBUI . VALOR_TEXTO DELIMITADOR
+    (13) statement -> VAR OP_ATRIBUI . VAR OP_ARIT OP_ARIT
+    (14) statement -> VAR OP_ATRIBUI . VAR DELIMITADOR
+    (15) statement -> VAR OP_ATRIBUI . VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> VAR OP_ATRIBUI . VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> VAR OP_ATRIBUI . funcao DELIMITADOR
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    VALOR_NUMINT    shift and go to state 46
+    VALOR_NUMDEC    shift and go to state 47
+    VALOR_TEXTO     shift and go to state 48
+    VAR             shift and go to state 45
+    ABRE_P          shift and go to state 9
+
+    funcao                         shift and go to state 49
+
+state 32
+
+    (18) statement -> VAR DELIMITADOR .
+
+    COMENT          reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    COMPILADORES    reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    INICIO          reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    FIM             reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    ENQUANTO        reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    PARA            reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    VAR             reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    SE              reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    AUX             reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    ESCREVA         reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    VERDADEIRO      reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    FALSO           reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    ABRE_P          reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    $end            reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    FECHA_CLT       reduce using rule 18 (statement -> VAR DELIMITADOR .)
+    ASPAS           reduce using rule 18 (statement -> VAR DELIMITADOR .)
+
+
+state 33
+
+    (21) statement -> funcao DELIMITADOR .
+
+    COMENT          reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    COMPILADORES    reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    INICIO          reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    FIM             reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    ENQUANTO        reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    PARA            reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    VAR             reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    SE              reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    AUX             reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    ESCREVA         reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    VERDADEIRO      reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    FALSO           reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    ABRE_P          reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    $end            reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    FECHA_CLT       reduce using rule 21 (statement -> funcao DELIMITADOR .)
+    ASPAS           reduce using rule 21 (statement -> funcao DELIMITADOR .)
+
+
+state 34
+
+    (22) statement -> funcao ABRE_CLT . statements FECHA_CLT
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    funcao                         shift and go to state 12
+    statements                     shift and go to state 50
+    statement                      shift and go to state 2
+
+state 35
+
+    (19) statement -> SE ABRE_P . cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> SE ABRE_P . cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (23) cond_param -> . VAR OP_REL VALOR_NUMINT
+    (24) cond_param -> . VAR OP_REL VALOR_NUMDEC
+    (25) cond_param -> . VAR OP_REL VALOR_TEXTO
+    (26) cond_param -> . VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> . VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> . VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+    (34) cond_param -> . cond_param OP_REL cond_param
+
+    VAR             shift and go to state 40
+
+    cond_param                     shift and go to state 51
+
+state 36
+
+    (30) statement -> ESCREVA ABRE_P . VAR FECHA_P DELIMITADOR
+    (31) statement -> ESCREVA ABRE_P . ASPAS statements ASPAS FECHA_P DELIMITADOR
+
+    VAR             shift and go to state 52
+    ASPAS           shift and go to state 53
+
+
+state 37
+
+    (6) statement -> INICIO ABRE_CH FECHA_CH .
+
+    COMENT          reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    IFSULDEMINAS    reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    COMPILADORES    reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    INICIO          reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    FIM             reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    ENQUANTO        reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    PARA            reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    VAR             reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    SE              reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    AUX             reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    ESCREVA         reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    VERDADEIRO      reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    FALSO           reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    ABRE_P          reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    $end            reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    FECHA_CLT       reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+    ASPAS           reduce using rule 6 (statement -> INICIO ABRE_CH FECHA_CH .)
+
+
+state 38
+
+    (7) statement -> FIM ABRE_CH FECHA_CH .
+
+    COMENT          reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    IFSULDEMINAS    reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    COMPILADORES    reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    INICIO          reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    FIM             reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    ENQUANTO        reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    PARA            reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    VAR             reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    SE              reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    AUX             reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    ESCREVA         reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    VERDADEIRO      reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    FALSO           reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    ABRE_P          reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    $end            reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    FECHA_CLT       reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+    ASPAS           reduce using rule 7 (statement -> FIM ABRE_CH FECHA_CH .)
+
+
+state 39
+
+    (8) statement -> ENQUANTO ABRE_P cond_param . FECHA_P ABRE_CLT statements FECHA_CLT
+    (34) cond_param -> cond_param . OP_REL cond_param
+
+    FECHA_P         shift and go to state 54
+    OP_REL          shift and go to state 55
+
+
+state 40
+
+    (23) cond_param -> VAR . OP_REL VALOR_NUMINT
+    (24) cond_param -> VAR . OP_REL VALOR_NUMDEC
+    (25) cond_param -> VAR . OP_REL VALOR_TEXTO
+    (26) cond_param -> VAR . OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> VAR . OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> VAR . OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+
+    OP_REL          shift and go to state 56
+
+
+state 41
+
+    (41) funcao -> ABRE_P param_vazio FECHA_P .
+
+    DELIMITADOR     reduce using rule 41 (funcao -> ABRE_P param_vazio FECHA_P .)
+    ABRE_CLT        reduce using rule 41 (funcao -> ABRE_P param_vazio FECHA_P .)
+
+
+state 42
+
+    (42) funcao -> ABRE_P param FECHA_P .
+
+    DELIMITADOR     reduce using rule 42 (funcao -> ABRE_P param FECHA_P .)
+    ABRE_CLT        reduce using rule 42 (funcao -> ABRE_P param FECHA_P .)
+
+
+state 43
+
+    (40) param -> param VIRGULA . param
+    (36) param -> . VALOR_NUMINT
+    (37) param -> . VALOR_NUMDEC
+    (38) param -> . VALOR_TEXTO
+    (39) param -> . VAR
+    (40) param -> . param VIRGULA param
+
+    VALOR_NUMINT    shift and go to state 26
+    VALOR_NUMDEC    shift and go to state 27
+    VALOR_TEXTO     shift and go to state 28
+    VAR             shift and go to state 29
+
+    param                          shift and go to state 57
+
+state 44
+
+    (9) statement -> PARA ABRE_P VAR . OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    OP_ATRIBUI      shift and go to state 58
+
+
+state 45
+
+    (13) statement -> VAR OP_ATRIBUI VAR . OP_ARIT OP_ARIT
+    (14) statement -> VAR OP_ATRIBUI VAR . DELIMITADOR
+    (15) statement -> VAR OP_ATRIBUI VAR . OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> VAR OP_ATRIBUI VAR . OP_ARIT VALOR_NUMDEC DELIMITADOR
+
+    OP_ARIT         shift and go to state 59
+    DELIMITADOR     shift and go to state 60
+
+
+state 46
+
+    (10) statement -> VAR OP_ATRIBUI VALOR_NUMINT . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 61
+
+
+state 47
+
+    (11) statement -> VAR OP_ATRIBUI VALOR_NUMDEC . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 62
+
+
+state 48
+
+    (12) statement -> VAR OP_ATRIBUI VALOR_TEXTO . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 63
+
+
+state 49
+
+    (17) statement -> VAR OP_ATRIBUI funcao . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 64
+
+
+state 50
+
+    (22) statement -> funcao ABRE_CLT statements . FECHA_CLT
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    FECHA_CLT       shift and go to state 65
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    funcao                         shift and go to state 12
+    statement                      shift and go to state 18
+
+state 51
+
+    (19) statement -> SE ABRE_P cond_param . FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> SE ABRE_P cond_param . FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (34) cond_param -> cond_param . OP_REL cond_param
+
+    FECHA_P         shift and go to state 66
+    OP_REL          shift and go to state 55
+
+
+state 52
+
+    (30) statement -> ESCREVA ABRE_P VAR . FECHA_P DELIMITADOR
+
+    FECHA_P         shift and go to state 67
+
+
+state 53
+
+    (31) statement -> ESCREVA ABRE_P ASPAS . statements ASPAS FECHA_P DELIMITADOR
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 68
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 54
+
+    (8) statement -> ENQUANTO ABRE_P cond_param FECHA_P . ABRE_CLT statements FECHA_CLT
+
+    ABRE_CLT        shift and go to state 69
+
+
+state 55
+
+    (34) cond_param -> cond_param OP_REL . cond_param
+    (23) cond_param -> . VAR OP_REL VALOR_NUMINT
+    (24) cond_param -> . VAR OP_REL VALOR_NUMDEC
+    (25) cond_param -> . VAR OP_REL VALOR_TEXTO
+    (26) cond_param -> . VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> . VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> . VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+    (34) cond_param -> . cond_param OP_REL cond_param
+
+    VAR             shift and go to state 40
+
+    cond_param                     shift and go to state 70
+
+state 56
+
+    (23) cond_param -> VAR OP_REL . VALOR_NUMINT
+    (24) cond_param -> VAR OP_REL . VALOR_NUMDEC
+    (25) cond_param -> VAR OP_REL . VALOR_TEXTO
+    (26) cond_param -> VAR OP_REL . VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> VAR OP_REL . VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> VAR OP_REL . VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+
+    VALOR_NUMINT    shift and go to state 71
+    VALOR_NUMDEC    shift and go to state 72
+    VALOR_TEXTO     shift and go to state 73
+
+
+state 57
+
+    (40) param -> param VIRGULA param .
+    (40) param -> param . VIRGULA param
+
+  ! shift/reduce conflict for VIRGULA resolved as shift
+    FECHA_P         reduce using rule 40 (param -> param VIRGULA param .)
+    VIRGULA         shift and go to state 43
+
+  ! VIRGULA         [ reduce using rule 40 (param -> param VIRGULA param .) ]
+
+
+state 58
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI . VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    VALOR_NUMINT    shift and go to state 74
+
+
+state 59
+
+    (13) statement -> VAR OP_ATRIBUI VAR OP_ARIT . OP_ARIT
+    (15) statement -> VAR OP_ATRIBUI VAR OP_ARIT . VALOR_NUMINT DELIMITADOR
+    (16) statement -> VAR OP_ATRIBUI VAR OP_ARIT . VALOR_NUMDEC DELIMITADOR
+
+    OP_ARIT         shift and go to state 75
+    VALOR_NUMINT    shift and go to state 76
+    VALOR_NUMDEC    shift and go to state 77
+
+
+state 60
+
+    (14) statement -> VAR OP_ATRIBUI VAR DELIMITADOR .
+
+    COMENT          reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    COMPILADORES    reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    INICIO          reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    FIM             reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    ENQUANTO        reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    PARA            reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    VAR             reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    SE              reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    AUX             reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    ESCREVA         reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    VERDADEIRO      reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    FALSO           reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    ABRE_P          reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    $end            reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    FECHA_CLT       reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+    ASPAS           reduce using rule 14 (statement -> VAR OP_ATRIBUI VAR DELIMITADOR .)
+
+
+state 61
+
+    (10) statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .
+
+    COMENT          reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    COMPILADORES    reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    INICIO          reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    FIM             reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    ENQUANTO        reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    PARA            reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    VAR             reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    SE              reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    AUX             reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    ESCREVA         reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    VERDADEIRO      reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    FALSO           reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    ABRE_P          reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    $end            reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    FECHA_CLT       reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+    ASPAS           reduce using rule 10 (statement -> VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR .)
+
+
+state 62
+
+    (11) statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .
+
+    COMENT          reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    COMPILADORES    reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    INICIO          reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    FIM             reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    ENQUANTO        reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    PARA            reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    VAR             reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    SE              reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    AUX             reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    ESCREVA         reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    VERDADEIRO      reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    FALSO           reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    ABRE_P          reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    $end            reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    FECHA_CLT       reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+    ASPAS           reduce using rule 11 (statement -> VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR .)
+
+
+state 63
+
+    (12) statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .
+
+    COMENT          reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    COMPILADORES    reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    INICIO          reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    FIM             reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    ENQUANTO        reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    PARA            reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    VAR             reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    SE              reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    AUX             reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    ESCREVA         reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    VERDADEIRO      reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    FALSO           reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    ABRE_P          reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    $end            reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    FECHA_CLT       reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+    ASPAS           reduce using rule 12 (statement -> VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR .)
+
+
+state 64
+
+    (17) statement -> VAR OP_ATRIBUI funcao DELIMITADOR .
+
+    COMENT          reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    COMPILADORES    reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    INICIO          reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    FIM             reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    ENQUANTO        reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    PARA            reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    VAR             reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    SE              reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    AUX             reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    ESCREVA         reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    VERDADEIRO      reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    FALSO           reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    ABRE_P          reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    $end            reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    FECHA_CLT       reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+    ASPAS           reduce using rule 17 (statement -> VAR OP_ATRIBUI funcao DELIMITADOR .)
+
+
+state 65
+
+    (22) statement -> funcao ABRE_CLT statements FECHA_CLT .
+
+    COMENT          reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    IFSULDEMINAS    reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    COMPILADORES    reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    INICIO          reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    FIM             reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    ENQUANTO        reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    PARA            reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    VAR             reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    SE              reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    AUX             reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    ESCREVA         reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    VERDADEIRO      reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    FALSO           reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    ABRE_P          reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    $end            reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    FECHA_CLT       reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+    ASPAS           reduce using rule 22 (statement -> funcao ABRE_CLT statements FECHA_CLT .)
+
+
+state 66
+
+    (19) statement -> SE ABRE_P cond_param FECHA_P . ABRE_CLT statements FECHA_CLT
+    (20) statement -> SE ABRE_P cond_param FECHA_P . ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+
+    ABRE_CLT        shift and go to state 78
+
+
+state 67
+
+    (30) statement -> ESCREVA ABRE_P VAR FECHA_P . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 79
+
+
+state 68
+
+    (31) statement -> ESCREVA ABRE_P ASPAS statements . ASPAS FECHA_P DELIMITADOR
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    ASPAS           shift and go to state 80
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 69
+
+    (8) statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT . statements FECHA_CLT
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 81
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 70
+
+    (34) cond_param -> cond_param OP_REL cond_param .
+    (34) cond_param -> cond_param . OP_REL cond_param
+
+  ! shift/reduce conflict for OP_REL resolved as shift
+    FECHA_P         reduce using rule 34 (cond_param -> cond_param OP_REL cond_param .)
+    VIRGULA         reduce using rule 34 (cond_param -> cond_param OP_REL cond_param .)
+    OP_REL          shift and go to state 55
+
+  ! OP_REL          [ reduce using rule 34 (cond_param -> cond_param OP_REL cond_param .) ]
+
+
+state 71
+
+    (23) cond_param -> VAR OP_REL VALOR_NUMINT .
+    (26) cond_param -> VAR OP_REL VALOR_NUMINT . OP_LOGICO VAR OP_REL VALOR_NUMINT
+
+    FECHA_P         reduce using rule 23 (cond_param -> VAR OP_REL VALOR_NUMINT .)
+    OP_REL          reduce using rule 23 (cond_param -> VAR OP_REL VALOR_NUMINT .)
+    VIRGULA         reduce using rule 23 (cond_param -> VAR OP_REL VALOR_NUMINT .)
+    OP_LOGICO       shift and go to state 82
+
+
+state 72
+
+    (24) cond_param -> VAR OP_REL VALOR_NUMDEC .
+    (27) cond_param -> VAR OP_REL VALOR_NUMDEC . OP_LOGICO VAR OP_REL VALOR_NUMDEC
+
+    FECHA_P         reduce using rule 24 (cond_param -> VAR OP_REL VALOR_NUMDEC .)
+    OP_REL          reduce using rule 24 (cond_param -> VAR OP_REL VALOR_NUMDEC .)
+    VIRGULA         reduce using rule 24 (cond_param -> VAR OP_REL VALOR_NUMDEC .)
+    OP_LOGICO       shift and go to state 83
+
+
+state 73
+
+    (25) cond_param -> VAR OP_REL VALOR_TEXTO .
+    (28) cond_param -> VAR OP_REL VALOR_TEXTO . OP_LOGICO VAR OP_REL VALOR_TEXTO
+
+    FECHA_P         reduce using rule 25 (cond_param -> VAR OP_REL VALOR_TEXTO .)
+    OP_REL          reduce using rule 25 (cond_param -> VAR OP_REL VALOR_TEXTO .)
+    VIRGULA         reduce using rule 25 (cond_param -> VAR OP_REL VALOR_TEXTO .)
+    OP_LOGICO       shift and go to state 84
+
+
+state 74
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT . VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    VIRGULA         shift and go to state 85
+
+
+state 75
+
+    (13) statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .
+
+    COMENT          reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    IFSULDEMINAS    reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    COMPILADORES    reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    INICIO          reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    FIM             reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    ENQUANTO        reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    PARA            reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    VAR             reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    SE              reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    AUX             reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    ESCREVA         reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    VERDADEIRO      reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    FALSO           reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    ABRE_P          reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    $end            reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    FECHA_CLT       reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+    ASPAS           reduce using rule 13 (statement -> VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT .)
+
+
+state 76
+
+    (15) statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 86
+
+
+state 77
+
+    (16) statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 87
+
+
+state 78
+
+    (19) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT . statements FECHA_CLT
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT . statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 88
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 79
+
+    (30) statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .
+
+    COMENT          reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    COMPILADORES    reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    INICIO          reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    FIM             reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    ENQUANTO        reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    PARA            reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    VAR             reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    SE              reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    AUX             reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    ESCREVA         reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    VERDADEIRO      reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    FALSO           reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    ABRE_P          reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    $end            reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    FECHA_CLT       reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+    ASPAS           reduce using rule 30 (statement -> ESCREVA ABRE_P VAR FECHA_P DELIMITADOR .)
+
+
+state 80
+
+    (31) statement -> ESCREVA ABRE_P ASPAS statements ASPAS . FECHA_P DELIMITADOR
+
+    FECHA_P         shift and go to state 89
+
+
+state 81
+
+    (8) statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements . FECHA_CLT
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    FECHA_CLT       shift and go to state 90
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 82
+
+    (26) cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO . VAR OP_REL VALOR_NUMINT
+
+    VAR             shift and go to state 91
+
+
+state 83
+
+    (27) cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO . VAR OP_REL VALOR_NUMDEC
+
+    VAR             shift and go to state 92
+
+
+state 84
+
+    (28) cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO . VAR OP_REL VALOR_TEXTO
+
+    VAR             shift and go to state 93
+
+
+state 85
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA . cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (23) cond_param -> . VAR OP_REL VALOR_NUMINT
+    (24) cond_param -> . VAR OP_REL VALOR_NUMDEC
+    (25) cond_param -> . VAR OP_REL VALOR_TEXTO
+    (26) cond_param -> . VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT
+    (27) cond_param -> . VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC
+    (28) cond_param -> . VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO
+    (34) cond_param -> . cond_param OP_REL cond_param
+
+    VAR             shift and go to state 40
+
+    cond_param                     shift and go to state 94
+
+state 86
+
+    (15) statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .
+
+    COMENT          reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    COMPILADORES    reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    INICIO          reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    FIM             reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    ENQUANTO        reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    PARA            reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    VAR             reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    SE              reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    AUX             reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    ESCREVA         reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    VERDADEIRO      reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    FALSO           reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    ABRE_P          reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    $end            reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    FECHA_CLT       reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+    ASPAS           reduce using rule 15 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR .)
+
+
+state 87
+
+    (16) statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .
+
+    COMENT          reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    COMPILADORES    reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    INICIO          reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    FIM             reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    ENQUANTO        reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    PARA            reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    VAR             reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    SE              reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    AUX             reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    ESCREVA         reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    VERDADEIRO      reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    FALSO           reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    ABRE_P          reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    $end            reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    FECHA_CLT       reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+    ASPAS           reduce using rule 16 (statement -> VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR .)
+
+
+state 88
+
+    (19) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements . FECHA_CLT
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements . FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    FECHA_CLT       shift and go to state 95
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 89
+
+    (31) statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P . DELIMITADOR
+
+    DELIMITADOR     shift and go to state 96
+
+
+state 90
+
+    (8) statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .
+
+    COMENT          reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    IFSULDEMINAS    reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    COMPILADORES    reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    INICIO          reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FIM             reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ENQUANTO        reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    PARA            reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VAR             reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    SE              reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    AUX             reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ESCREVA         reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VERDADEIRO      reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FALSO           reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ABRE_P          reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    $end            reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FECHA_CLT       reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ASPAS           reduce using rule 8 (statement -> ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+
+
+state 91
+
+    (26) cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR . OP_REL VALOR_NUMINT
+
+    OP_REL          shift and go to state 97
+
+
+state 92
+
+    (27) cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR . OP_REL VALOR_NUMDEC
+
+    OP_REL          shift and go to state 98
+
+
+state 93
+
+    (28) cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR . OP_REL VALOR_TEXTO
+
+    OP_REL          shift and go to state 99
+
+
+state 94
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param . VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (34) cond_param -> cond_param . OP_REL cond_param
+
+    VIRGULA         shift and go to state 100
+    OP_REL          shift and go to state 55
+
+
+state 95
+
+    (19) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT . SENAO ABRE_CLT statements FECHA_CLT
+
+    COMENT          reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    IFSULDEMINAS    reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    COMPILADORES    reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    INICIO          reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FIM             reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ENQUANTO        reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    PARA            reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VAR             reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    SE              reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    AUX             reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ESCREVA         reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VERDADEIRO      reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FALSO           reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ABRE_P          reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    $end            reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FECHA_CLT       reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ASPAS           reduce using rule 19 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT .)
+    SENAO           shift and go to state 101
+
+
+state 96
+
+    (31) statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .
+
+    COMENT          reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    IFSULDEMINAS    reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    COMPILADORES    reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    INICIO          reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    FIM             reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    ENQUANTO        reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    PARA            reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    VAR             reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    SE              reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    AUX             reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    ESCREVA         reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    VERDADEIRO      reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    FALSO           reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    ABRE_P          reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    $end            reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    FECHA_CLT       reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+    ASPAS           reduce using rule 31 (statement -> ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR .)
+
+
+state 97
+
+    (26) cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL . VALOR_NUMINT
+
+    VALOR_NUMINT    shift and go to state 102
+
+
+state 98
+
+    (27) cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL . VALOR_NUMDEC
+
+    VALOR_NUMDEC    shift and go to state 103
+
+
+state 99
+
+    (28) cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL . VALOR_TEXTO
+
+    VALOR_TEXTO     shift and go to state 104
+
+
+state 100
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA . VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    VAR             shift and go to state 105
+
+
+state 101
+
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO . ABRE_CLT statements FECHA_CLT
+
+    ABRE_CLT        shift and go to state 106
+
+
+state 102
+
+    (26) cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT .
+
+    FECHA_P         reduce using rule 26 (cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT .)
+    OP_REL          reduce using rule 26 (cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT .)
+    VIRGULA         reduce using rule 26 (cond_param -> VAR OP_REL VALOR_NUMINT OP_LOGICO VAR OP_REL VALOR_NUMINT .)
+
+
+state 103
+
+    (27) cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC .
+
+    FECHA_P         reduce using rule 27 (cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC .)
+    OP_REL          reduce using rule 27 (cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC .)
+    VIRGULA         reduce using rule 27 (cond_param -> VAR OP_REL VALOR_NUMDEC OP_LOGICO VAR OP_REL VALOR_NUMDEC .)
+
+
+state 104
+
+    (28) cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO .
+
+    FECHA_P         reduce using rule 28 (cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO .)
+    OP_REL          reduce using rule 28 (cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO .)
+    VIRGULA         reduce using rule 28 (cond_param -> VAR OP_REL VALOR_TEXTO OP_LOGICO VAR OP_REL VALOR_TEXTO .)
+
+
+state 105
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR . OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    OP_ATRIBUI      shift and go to state 107
+
+
+state 106
+
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT . statements FECHA_CLT
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 108
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 107
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI . OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    OP_ARIT         shift and go to state 109
+
+
+state 108
+
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements . FECHA_CLT
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    FECHA_CLT       shift and go to state 110
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 109
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT . OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+
+    OP_ARIT         shift and go to state 111
+
+
+state 110
+
+    (20) statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .
+
+    COMENT          reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    IFSULDEMINAS    reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    COMPILADORES    reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    INICIO          reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    FIM             reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    ENQUANTO        reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    PARA            reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    VAR             reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    SE              reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    AUX             reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    ESCREVA         reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    VERDADEIRO      reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    FALSO           reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    ABRE_P          reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    $end            reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    FECHA_CLT       reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+    ASPAS           reduce using rule 20 (statement -> SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT .)
+
+
+state 111
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT . FECHA_P ABRE_CLT statements FECHA_CLT
+
+    FECHA_P         shift and go to state 112
+
+
+state 112
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P . ABRE_CLT statements FECHA_CLT
+
+    ABRE_CLT        shift and go to state 113
+
+
+state 113
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT . statements FECHA_CLT
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statements                     shift and go to state 114
+    statement                      shift and go to state 2
+    funcao                         shift and go to state 12
+
+state 114
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements . FECHA_CLT
+    (1) statements -> statements . statement
+    (3) statement -> . COMENT
+    (4) statement -> . IFSULDEMINAS DELIMITADOR
+    (5) statement -> . COMPILADORES DELIMITADOR
+    (6) statement -> . INICIO ABRE_CH FECHA_CH
+    (7) statement -> . FIM ABRE_CH FECHA_CH
+    (8) statement -> . ENQUANTO ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (9) statement -> . PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT
+    (10) statement -> . VAR OP_ATRIBUI VALOR_NUMINT DELIMITADOR
+    (11) statement -> . VAR OP_ATRIBUI VALOR_NUMDEC DELIMITADOR
+    (12) statement -> . VAR OP_ATRIBUI VALOR_TEXTO DELIMITADOR
+    (13) statement -> . VAR OP_ATRIBUI VAR OP_ARIT OP_ARIT
+    (14) statement -> . VAR OP_ATRIBUI VAR DELIMITADOR
+    (15) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMINT DELIMITADOR
+    (16) statement -> . VAR OP_ATRIBUI VAR OP_ARIT VALOR_NUMDEC DELIMITADOR
+    (17) statement -> . VAR OP_ATRIBUI funcao DELIMITADOR
+    (18) statement -> . VAR DELIMITADOR
+    (19) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT
+    (20) statement -> . SE ABRE_P cond_param FECHA_P ABRE_CLT statements FECHA_CLT SENAO ABRE_CLT statements FECHA_CLT
+    (21) statement -> . funcao DELIMITADOR
+    (22) statement -> . funcao ABRE_CLT statements FECHA_CLT
+    (29) statement -> . AUX
+    (30) statement -> . ESCREVA ABRE_P VAR FECHA_P DELIMITADOR
+    (31) statement -> . ESCREVA ABRE_P ASPAS statements ASPAS FECHA_P DELIMITADOR
+    (32) statement -> . VERDADEIRO
+    (33) statement -> . FALSO
+    (41) funcao -> . ABRE_P param_vazio FECHA_P
+    (42) funcao -> . ABRE_P param FECHA_P
+
+    FECHA_CLT       shift and go to state 115
+    COMENT          shift and go to state 3
+    IFSULDEMINAS    shift and go to state 4
+    COMPILADORES    shift and go to state 5
+    INICIO          shift and go to state 6
+    FIM             shift and go to state 7
+    ENQUANTO        shift and go to state 8
+    PARA            shift and go to state 10
+    VAR             shift and go to state 11
+    SE              shift and go to state 13
+    AUX             shift and go to state 14
+    ESCREVA         shift and go to state 15
+    VERDADEIRO      shift and go to state 16
+    FALSO           shift and go to state 17
+    ABRE_P          shift and go to state 9
+
+    statement                      shift and go to state 18
+    funcao                         shift and go to state 12
+
+state 115
+
+    (9) statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .
+
+    COMENT          reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    IFSULDEMINAS    reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    COMPILADORES    reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    INICIO          reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FIM             reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ENQUANTO        reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    PARA            reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VAR             reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    SE              reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    AUX             reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ESCREVA         reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    VERDADEIRO      reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FALSO           reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ABRE_P          reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    $end            reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    FECHA_CLT       reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+    ASPAS           reduce using rule 9 (statement -> PARA ABRE_P VAR OP_ATRIBUI VALOR_NUMINT VIRGULA cond_param VIRGULA VAR OP_ATRIBUI OP_ARIT OP_ARIT FECHA_P ABRE_CLT statements FECHA_CLT .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for VIRGULA in state 57 resolved as shift
+WARNING: shift/reduce conflict for OP_REL in state 70 resolved as shift

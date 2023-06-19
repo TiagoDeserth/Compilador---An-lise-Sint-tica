@@ -1,0 +1,55 @@
+IFSULDEMINAS;
+COMPILADORES;
+
+INICIO
+{
+
+temperatura := 25;
+mensagem;
+
+
+¨CRIA CLASSE ControladorAmbiente
+CLASSE controladorambiente:
+    DEFINE temperatura()[
+        temperatura := 25;
+        mensagem := "Bem-vindo ao controlador de ambiente";
+    ]
+
+    DEFINE ajustartemperatura(novatemperatura)[
+        SE novatemperatura > temperatura[
+            ESCREVA("Aquecendo o ambiente...");
+        ]
+        SE novatemperatura < temperatura[
+            ESCREVA("Resfriando o ambiente...");
+        ]
+        SENAO[
+            ESCREVA("Temperatura jÃ¡ ajustada");
+        ]
+    ]
+
+    DEFINE exibirmensagem()[
+        ESCREVA(mensagem);
+    ]
+
+
+controlador := controladorambiente()
+
+ENQUANTO verdadeiro[
+    temperaturaatual := LEIA("Digite a temperatura atual: ");
+    controlador.ajustartemperatura(temperaturaatual);
+    controlador.exibirmensagem();
+]
+
+}
+
+FIM{}
+
+
+
+
+
+
+
+
+
+
